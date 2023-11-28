@@ -7,7 +7,8 @@
     <body>
         <ol>
             <li th:each="student: ${students}">
-                <span th:text="|${student.firstName} ${student.lastName}|" />
+                Name: <span th:text="${student.name}" />
+                Registration number: <span th:text="${student.registrationNumber}" />
                 <form action="#" th:action="@{/students/__${student.id}__/delete}" method="post">
                     <button type="submit">Delete</button>
                 </form>

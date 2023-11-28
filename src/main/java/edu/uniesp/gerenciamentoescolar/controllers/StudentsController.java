@@ -63,8 +63,8 @@ public class StudentsController {
 
         Student persistedStudent = persistedStudentOptional.get();
 
-        persistedStudent.firstName = student.firstName;
-        persistedStudent.lastName = student.lastName;
+        persistedStudent.name = student.name;
+        persistedStudent.registrationNumber = student.registrationNumber;
 
         this.repository.save(persistedStudent);
 

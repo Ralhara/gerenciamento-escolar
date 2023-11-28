@@ -8,11 +8,11 @@
         <h1>Update student</h1>
         <form action="#" th:action="@{/students/__${id}__/update}" th:object="${student}" method="post">
             <p>
-                First name: <input th:field="*{firstName}" type="text" />
+                Name: <input th:field="*{name}" type="text" />
             </p>
 
             <p>
-                Last name: <input th:field="*{lastName}" type="text" />
+                Registration number: <input th:field="*{registrationNumber}" type="text" />
             </p>
 
             <p>

@@ -10,8 +10,8 @@ public class Student {
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
     public Long id;
-    public String firstName;
-    public String lastName;
+    public String name;
+    public String registrationNumber;
 
     public Long getId() {
         return id;
@@ -21,19 +21,19 @@ public class Student {
         this.id = id;
     }
 
-    public String getFirstName() {
-        return firstName;
+    public String getName() {
+        return name;
     }
 
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public String getLastName() {
-        return lastName;
+    public String getRegistrationNumber() {
+        return registrationNumber;
     }
 
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
+    public void setRegistrationNumber(String registrationNumber) {
+        this.registrationNumber = registrationNumber;
     }
 }
