@@ -1,0 +1,19 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Students Listing</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    </head>
+    <body>
+        <ol>
+            <li th:each="student: ${students}">
+                <span th:text="|${student.firstName} ${student.lastName}|" />
+                <form action="#" th:action="@{/students/__${student.id}__/delete}" method="post">
+                    <button type="submit">Delete</button>
+                </form>
+            </li>
+        </ol>
+
+        <a href="/students/new">Create new</a>
+    </body>
+</html>
