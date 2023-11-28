@@ -11,6 +11,7 @@
                 <form action="#" th:action="@{/students/__${student.id}__/delete}" method="post">
                     <button type="submit">Delete</button>
                 </form>
+                <a th:href="@{/students/__${student.id}__/update}">Update</a>
             </li>
         </ol>
 

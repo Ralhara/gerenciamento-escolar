@@ -6,6 +6,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Optional;
+
 @Controller
 public class StudentsController {
     private StudentRepository repository;
@@ -38,6 +40,34 @@ public class StudentsController {
     @PostMapping("/students/{id}/delete")
     public String deleteById(@PathVariable Long id) {
         this.repository.deleteById(id);
+        return "redirect:/students";
+    }
+
+    @GetMapping("/students/{id}/update")
+    public String updateForm(Model model, @PathVariable Long id) throws Exception {
+        Optional<Student> student = this.repository.findById(id);
+        if (student.isEmpty()) {
+            throw new Exception("Could not find Student with Id " + id);
+        }
+
+        model.addAttribute("student", student);
+        return "students-update";
+    }
+
+    @PostMapping("/students/{id}/update")
+    public String updateSubmit(@ModelAttribute Student student, @PathVariable Long id) throws Exception {
+        Optional<Student> persistedStudentOptional = this.repository.findById(id);
+        if (persistedStudentOptional.isEmpty()) {
+            throw new Exception("Could not find Student with Id " + id);
+        }
+
+        Student persistedStudent = persistedStudentOptional.get();
+
+        persistedStudent.firstName = student.firstName;
+        persistedStudent.lastName = student.lastName;
+
+        this.repository.save(persistedStudent);
+
         return "redirect:/students";
     }
 }
