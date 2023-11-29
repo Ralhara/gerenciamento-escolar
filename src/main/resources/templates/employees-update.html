@@ -1,0 +1,24 @@
+<!DOCTYPE HTML>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+    <title>Update employee</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<h1>Update employee</h1>
+<form action="#" th:action="@{/employees/__${id}__/update}" th:object="${employee}" method="post">
+    <p>
+        Name: <input th:field="*{name}" type="text" />
+    </p>
+
+    <p>
+        Registration number: <input th:field="*{registrationNumber}" type="text" />
+    </p>
+
+    <p>
+        <input type="submit" value="Submit" />
+        <input type="reset" value="Reset" />
+    </p>
+</form>
+</body>
+</html>

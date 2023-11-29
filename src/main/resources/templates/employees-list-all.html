@@ -1,0 +1,31 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Employees Listing</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<ol>
+    <li th:each="employee: ${employees}">
+        Name: <span th:text="${employee.name}" />
+        Registration number: <span th:text="${employee.registrationNumber}" />
+        <form action="#" th:action="@{/employees/__${employee.id}__/delete}" method="post">
+            <button type="submit">Delete</button>
+        </form>
+        <a th:href="@{/employees/__${employee.id}__/update}">Update</a>
+    </li>
+</ol>
+
+<a href="/employees/new">Create new</a>
+
+<form action="/employees/find-by-name" method="get">
+    <p>
+        Search by name: <input name="name" type="text" />
+    </p>
+
+    <p>
+        <input type="submit" value="Submit" />
+    </p>
+</form>
+</body>
+</html>

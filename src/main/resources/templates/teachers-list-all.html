@@ -1,0 +1,31 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Teachers Listing</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<ol>
+    <li th:each="teacher: ${teachers}">
+        Name: <span th:text="${teacher.name}" />
+        Registration number: <span th:text="${teacher.registrationNumber}" />
+        <form action="#" th:action="@{/teachers/__${teacher.id}__/delete}" method="post">
+            <button type="submit">Delete</button>
+        </form>
+        <a th:href="@{/teachers/__${teacher.id}__/update}">Update</a>
+    </li>
+</ol>
+
+<a href="/teachers/new">Create new</a>
+
+<form action="/teachers/find-by-name" method="get">
+    <p>
+        Search by name: <input name="name" type="text" />
+    </p>
+
+    <p>
+        <input type="submit" value="Submit" />
+    </p>
+</form>
+</body>
+</html>
