@@ -70,6 +70,14 @@ public class StudentsController {
 
         return "redirect:/students";
     }
+
+    @GetMapping("/students/find-by-name")
+    public String findByNameForm(Model model, @RequestParam String name) {
+        Iterable<Student> students = this.repository.findByName(name);
+        model.addAttribute("students", students);
+
+        return "students-list-all";
+    }
 }
 
 
