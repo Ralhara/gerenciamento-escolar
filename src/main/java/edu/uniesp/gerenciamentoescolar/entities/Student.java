@@ -1,39 +1,25 @@
 package edu.uniesp.gerenciamentoescolar.entities;
 
 import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
 
 @Entity
-public class Student {
-    @Id
-    @GeneratedValue(strategy= GenerationType.AUTO)
-    public Long id;
-    public String name;
-    public String registrationNumber;
+public class Student extends Person {
+    public String classNumber;
+    public String enrolmentDate;
 
-    public Long getId() {
-        return id;
+    public String getClassNumber() {
+        return classNumber;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setClassNumber(String classNumber) {
+        this.classNumber = classNumber;
     }
 
-    public String getName() {
-        return name;
+    public String getEnrolmentDate() {
+        return enrolmentDate;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getRegistrationNumber() {
-        return registrationNumber;
-    }
-
-    public void setRegistrationNumber(String registrationNumber) {
-        this.registrationNumber = registrationNumber;
+    public void setEnrolmentDate(String enrolmentDate) {
+        this.enrolmentDate = enrolmentDate;
     }
 }
